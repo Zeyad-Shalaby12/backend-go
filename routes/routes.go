@@ -2,18 +2,16 @@ package routes
 
 import (
 	"hello-fiber/handlers"
-	"hello-fiber/middleware"
 	"hello-fiber/repository"
-
 	"github.com/gofiber/fiber/v2"
 	"gorm.io/gorm"
 )
 
-func SetupRoutes(app *fiber.App, db *gorm.DB, apiToken string) {
+func SetupRoutes(app *fiber.App, db *gorm.DB) {
 	api := app.Group("/api")
 	
 	// تطبيق middleware المصادقة على جميع مسارات API
-	v1 := api.Group("/v1", middleware.AuthMiddleware(apiToken))
+	v1 := api.Group("/v1")
 
 	// -------- المستودعات والمعالجات --------
 	

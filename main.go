@@ -20,11 +20,6 @@ func main() {
 	}
 
 	// تحديد التوكن الثابت من متغير البيئة أو استخدام القيمة الافتراضية
-	apiToken := os.Getenv("API_TOKEN")
-	if apiToken == "" {
-		apiToken = "learnos_7x9!Qw2@zP4&vB8*Lm5^cRt6" // توكن افتراضي في حالة عدم وجود متغير بيئة
-		log.Println("تحذير: تم استخدام توكن API افتراضي. قم بتعيين متغير البيئة API_TOKEN للإنتاج.")
-	}
 
 	config := &storage.Config{
 		Host:     os.Getenv("DB_HOST"),
@@ -58,7 +53,7 @@ func main() {
 	app.Use(cors.New())
 
 	// إعداد جميع المسارات مع تمرير توكن المصادقة
-	routes.SetupRoutes(app, db, apiToken)
+	routes.SetupRoutes(app, db)
 
 	port := os.Getenv("PORT")
 	if port == "" {

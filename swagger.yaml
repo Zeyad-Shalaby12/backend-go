@@ -1,0 +1,2103 @@
+openapi: 3.0.3
+info:
+  title: واجهة برمجة تطبيقات منصة تعليمية
+  description: واجهة برمجة تطبيقات لإدارة منصة تعليمية تحتوي على موارد مثل المستويات الأكاديمية، الكتب، الدورات، المعلمين، الطلاب، وغيرها.
+  version: 1.0.0
+servers:
+  - url: http://127.0.0.1:8000/api/v1
+    description: الخادم الرئيسي لواجهة البرمجة
+components:
+  securitySchemes:
+    ApiToken:
+      type: apiKey
+      in: header
+      name: X-API-Token
+  schemas:
+    AcademicLevel:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: معرف المستوى الأكاديمي
+        name:
+          type: ✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔) string
+          description: اسم المستوى الأكاديمي
+        description:
+          type: string
+          description: وصف المستوى الأكاديمي
+        image:
+          type: string
+          description: رابط الصورة
+        education_platform_id:
+          type: integer
+          description: معرف المنصة التعليمية
+        education_platform:
+          $ref: '#/components/schemas/EducationPlatform'
+          description: المنصة التعليمية المرتبطة
+        created_at:
+          type: string
+          format: date-time
+          description: تاريخ الإنشاء
+        updated_at:
+          type: string
+          format: date-time
+          description: تاريخ التحديث
+      required:
+        - name
+        - education_platform_id
+    Book:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: معرف الكتاب
+        name:
+          type: string
+          description: اسم الكتاب
+        is_available:
+          type: boolean
+          description: حالة توفر الكتاب
+        image:
+          type: string
+          description: رابط صورة الكتاب
+        is_digital:
+          type: boolean
+          description: هل الكتاب رقمي؟
+        price:
+          type: number
+          format: float
+          description: سعر الكتاب
+        discount_price:
+          type: number
+          format: float
+          nullable: true
+          description: سعر الخصم (إن وجد)
+        teacher_id:
+          type: integer
+          description: معرف المعلم
+        teacher:
+          $ref: '#/components/schemas/Teacher'
+          description: المعلم المرتبط
+        platform_id:
+          type: integer
+          description: معرف المنصة
+        education_platform:
+          $ref: '#/components/schemas/EducationPlatform'
+          description: المنصة التعليمية المرتبطة
+        created_at:
+          type: string
+          format: date-time
+          description: تاريخ الإنشاء
+        updated_at:
+          type: string
+          format: date-time
+          description: تاريخ التحديث
+      required:
+        - name
+        - price
+        - teacher_id
+        - platform_id
+    Course:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: معرف الدورة
+        name:
+          type: string
+          description: اسم الدورة
+        description:
+          type: string
+          description: وصف الدورة
+        image:
+          type: string
+          description: رابط صورة الدورة
+        price:
+          type: number
+          format: float
+          description: سعر الدورة
+        discount_price:
+          type: number
+          format: float
+          nullable: true
+          description: سعر الخصم (إن وجد)
+        discount_end_date:
+          type: string
+          format: date-time
+          nullable: true
+          description: تاريخ انتهاء الخصم
+        academic_level_id:
+          type: integer
+          description: معرف المستوى الأكاديمي
+        academic_level:
+          $ref: '#/components/schemas/AcademicLevel'
+          description: المستوى الأكاديمي المرتبط
+        created_at:
+          type: string
+          format: date-time
+          description: تاريخ الإنشاء
+        updated_at:
+          type: string
+          format: date-time
+          description: تاريخ التحديث
+      required:
+        - name
+        - price
+        - academic_level_id
+    EducationPlatform:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: معرف المنصة
+        name:
+          type: string
+          description: اسم المنصة
+        primary_color:
+          type: string
+          description: اللون الأساسي للمنصة
+        is_university:
+          type: boolean
+          description: هل المنصة جامعة؟
+        status:
+          type: string
+          enum: [نشط, غير_نشط]
+          description: حالة المنصة
+        has_one_teacher:
+          type: boolean
+          description: هل تحتوي المنصة على معلم واحد فقط؟
+        support_department:
+          type: boolean
+          description: هل يوجد قسم دعم؟
+        contact_links:
+          type: object
+          description: روابط التواصل
+        dark_mode:
+          type: boolean
+          description: الوضع الداكن
+        guest_allowed:
+          type: boolean
+          description: السماح للضيوف
+        max_login_count:
+          type: integer
+          description: الحد الأقصى لتسجيل الدخول
+        created_at:
+          type: string
+          format: date-time
+          description: تاريخ الإنشاء
+        updated_at:
+          type: string
+          format: date-time
+          description: تاريخ التحديث
+      required:
+        - name
+    EducationPlatformTeacher:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: معرف العلاقة
+        teacher_id:
+          type: integer
+          description: معرف المعلم
+        education_platform_id:
+          type: integer
+          description: معرف المنصة
+        teacher:
+          $ref: '#/components/schemas/Teacher'
+          description: المعلم المرتبط
+        education_platform:
+          $ref: '#/components/schemas/EducationPlatform'
+          description: المنصة المرتبطة
+        created_at:
+          type: string
+          format: date-time
+          description: تاريخ الإنشاء
+        updated_at:
+          type: string
+          format: date-time
+          description: تاريخ التحديث
+      required:
+        - teacher_id
+        - education_platform_id
+    Exam:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: معرف الامتحان
+        name:
+          type: string
+          description: اسم الامتحان
+        total_score:
+          type: number
+          format: float
+          description: الدرجة الإجمالية
+        duration:
+          type: integer
+          description: مدة الامتحان
+        questions:
+          type: object
+          description: الأسئلة
+        course_id:
+          type: integer
+          description: معرف الدورة
+        course:
+          $ref: '#/components/schemas/Course'
+          description: الدورة المرتبطة
+        created_at:
+          type: string
+          format: date-time
+          description: تاريخ الإنشاء
+        updated_at:
+          type: string
+          format: date-time
+          description: تاريخ التحديث
+      required:
+        - name
+        - total_score
+        - duration
+        - course_id
+    Notification:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: معرف الإشعار
+        content:
+          type: string
+          description: محتوى الإشعار
+        education_platform_id:
+          type: integer
+          description: معرف المنصة
+        education_platform:
+          $ref: '#/components/schemas/EducationPlatform'
+          description: المنصة المرتبطة
+        created_at:
+          type: string
+          format: date-time
+          description: تاريخ الإنشاء
+        updated_at:
+          type: string
+          format: date-time
+          description: تاريخ التحديث
+      required:
+        - content
+        - education_platform_id
+    Post:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: معرف المنشور
+        content:
+          type: string
+          description: محتوى المنشور
+        likes_count:
+          type: integer
+          description: عدد الإعجابات
+        comments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Comment'
+          description: التعليقات
+        student_id:
+          type: integer
+          description: معرف الطالب
+        platform_id:
+          type: integer
+          description: معرف المنصة
+        student:
+          $ref: '#/components/schemas/Student'
+          description: الطالب المرتبط
+        platform:
+          $ref: '#/components/schemas/EducationPlatform'
+          description: المنصة المرتبطة
+        created_at:
+          type: string
+          format: date-time
+          description: تاريخ الإنشاء
+        updated_at:
+          type: string
+          format: date-time
+          description: تاريخ التحديث
+      required:
+        - content
+        - student_id
+        - platform_id
+    Comment:
+      type: object
+      properties:
+        student_id:
+          type: integer
+          description: معرف الطالب
+        name:
+          type: string
+          description: اسم التعليق
+        content:
+          type: string
+          description: محتوى التعليق
+        created_at:
+          type: integer
+          format: int64
+          description: تاريخ الإنشاء
+      required:
+        - student_id
+        - content
+    Student:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: معرف الطالب
+        name:
+          type: string
+          description: اسم الطالب
+        phone:
+          type: string
+          description: رقم هاتف الطالب
+        parent_phone:
+          type: string
+          description: رقم هاتف ولي الأمر
+        gender:
+          type: string
+          description: الجنس
+        study_type:
+          type: string
+          description: نوع الدراسة
+        governorate:
+          type: string
+          description: المحافظة
+        academic_level_id:
+          type: integer
+          description: معرف المستوى الأكاديمي
+        platform_id:
+          type: integer
+          description: معرف المنصة
+        academic_level:
+          $ref: '#/components/schemas/AcademicLevel'
+          description: المستوى الأكاديمي المرتبط
+        platform:
+          $ref: '#/components/schemas/EducationPlatform'
+          description: المنصة المرتبطة
+        courses:
+          type: array
+          items:
+            $ref: '#/components/schemas/Course'
+          description: الدورات المرتبطة
+        created_at:
+          type: string
+          format: date-time
+          description: تاريخ الإنشاء
+        updated_at:
+          type: string
+          format: date-time
+          description: تاريخ التحديث
+      required:
+        - name
+        - phone
+        - parent_phone
+        - gender
+        - study_type
+        - governorate
+        - academic_level_id
+        - platform_id
+    Teacher:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: معرف المعلم
+        name:
+          type: string
+          description: اسم المعلم
+        image:
+          type: string
+          description: رابط صورة المعلم
+        phone:
+          type: string
+          description: رقم هاتف المعلم
+        password:
+          type: string
+          description: كلمة المرور
+        email:
+          type: string
+          description: البريد الإلكتروني
+        created_at:
+          type: string
+          format: date-time
+          description: تاريخ الإنشاء
+        updated_at:
+          type: string
+          format: date-time
+          description: تاريخ التحديث
+      required:
+        - name
+        - phone
+        - password
+        - email
+    Video:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: معرف الفيديو
+        name:
+          type: string
+          description: اسم الفيديو
+        type:
+          type: string
+          enum: [يوتيوب, خادم]
+          description: نوع الفيديو
+        url:
+          type: string
+          description: رابط الفيديو
+        course_id:
+          type: integer
+          description: معرف الدورة
+        course:
+          $ref: '#/components/schemas/Course'
+          description: الدورة المرتبطة
+        created_at:
+          type: string
+          format: date-time
+          description: تاريخ الإ 종يو
+        updated_at:
+          type: string
+          format: date-time
+          description: تاريخ التحديث
+      required:
+        - name
+        - type
+        - url
+        - course_id
+    PlatformLoginLimit:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: معرف الحد
+        education_platform_id:
+          type: integer
+          description: معرف المنصة
+        max_login_count:
+          type: integer
+          default: 5
+          description: الحد الأقصى لتسجيل الدخول
+        platform:
+          $ref: '#/components/schemas/EducationPlatform'
+          description: المنصة المرتبطة
+        created_at:
+          type: string
+          format: date-time
+          description: تاريخ الإنشاء
+        updated_at:
+          type: string
+          format: date-time
+          description: تاريخ التحديث
+      required:
+        - education_platform_id
+        - max_login_count
+    StudentLoginRecord:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: معرف السجل
+        student_id:
+          type: integer
+          description: معرف الطالب
+        education_platform_id:
+          type: integer
+          description: معرف المنصة
+        login_time:
+          type: string
+          format: date-time
+          description: وقت تسجيل الدخول
+        ip_address:
+          type: string
+          description: عنوان IP
+        user_agent:
+          type: string
+          description: وكيل المستخدم
+        student:
+          $ref: '#/components/schemas/Student'
+          description: الطالب المرتبط
+        platform:
+          $ref: '#/components/schemas/EducationPlatform'
+          description: المنصة المرتبطة
+        created_at:
+          type: string
+          format: date-time
+          description: تاريخ الإنشاء
+        updated_at:
+          type: string
+          format: date-time
+          description: تاريخ التحديث
+      required:
+        - student_id
+        - education_platform_id
+        - login_time
+paths:
+  /platforms:
+    post:
+      summary: إنشاء منصة تعليمية جديدة
+      tags: [المنصات التعليمية]
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EducationPlatform'
+      responses:
+        '201':
+          description: تم إنشاء المنصة
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EducationPlatform'
+        '400':
+          description: طلب غير صالح
+    get:
+      summary: استرجاع جميع المنصات التعليمية
+      tags: [المنصات التعليمية]
+
+      responses:
+        '200':
+          description: قائمة المنصات
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EducationPlatform'
+  /platforms/{id}:
+    get:
+      summary: استرجاع منصة محددة
+      tags: [المنصات التعليمية]
+
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: معرف المنصة
+      responses:
+        '200':
+          description: تفاصيل المنصة
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EducationPlatform'
+        '404':
+          description: المنصة غير موجودة
+    put:
+      summary: تحديث منصة
+      tags: [المنصات التعليمية]
+
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: معرف المنصة
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EducationPlatform'
+      responses:
+        '200':
+          description: تم تحديث المنصة
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EducationPlatform'
+        '404':
+          description: المنصة غير موجودة
+    delete:
+      summary: حذف منصة
+      tags: [المنصات التعليمية]
+
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: معرف المنصة
+      responses:
+        '204':
+          description: تم حذف المنصة
+        '404':
+          description: المنصة غير موجودة
+  /academic-levels:
+    post:
+      summary: إنشاء مستوى أكاديمي جديد
+      tags: [المستويات الأكاديمية]
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AcademicLevel'
+      responses:
+        '201':
+          description: تم إنشاء المستوى الأكاديمي
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AcademicLevel'
+        '400':
+          description: طلب غير صالح
+    get:
+      summary: استرجاع جميع المستويات الأكاديمية
+      tags: [المستويات الأكاديمية]
+
+      responses:
+        '200':
+          description: قائمة المستويات الأكاديمية
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AcademicLevel'
+  /academic-levels/{id}:
+    get:
+      summary: استرجاع مستوى أكاديمي محدد
+      tags: [المستويات الأكاديمية]
+
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: معرف المستوى الأكاديمي
+      responses:
+        '200':
+          description: تفاصيل المستوى الأكاديمي
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AcademicLevel'
+        '404':
+          description: المستوى الأكاديمي غير موجود
+    put:
+      summary: تحديث مستوى أكاديمي
+      tags: [المستويات الأكاديمية]
+
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: معرف المستوى الأكاديمي
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AcademicLevel'
+      responses:
+        '200':
+          description: تم تحديث المستوى الأكاديمي
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AcademicLevel'
+        '404':
+          description: المستوى الأكاديمي غير موجود
+    delete:
+      summary: حذف مستوى أكاديمي
+      tags: [المستويات الأكاديمية]
+
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: معرف المستوى الأكاديمي
+      responses:
+        '204':
+          description: تم حذف المستوى الأكاديمي
+        '404':
+          description: المستوى الأكاديمي غير موجود
+  /teachers/register:
+    post:
+      summary: تسجيل معلم جديد
+      tags: [المعلمون]
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Teacher'
+      responses:
+        '201':
+          description: تم تسجيل المعلم
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Teacher'
+        '400':
+          description: طلب غير صالح
+  /teachers/login:
+    post:
+      summary: تسجيل دخول معلم
+      tags: [المعلمون]
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: البريد الإلكتروني
+                password:
+                  type: string
+                  description: كلمة المرور
+              required:
+                - email
+                - password
+      responses:
+        '200':
+          description: تسجيل الدخول ناجح
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+                    description: رمز التوثيق
+        '401':
+          description: غير مصرح
+  /teachers/{id}:
+    get:
+      summary: استرجاع معلم محدد
+      tags: [المعلمون]
+
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: معرف المعلم
+      responses:
+        '200':
+          description: تفاصيل المعلم
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Teacher'
+        '404':
+          description: المعلم غير موجود
+    put:
+      summary: تحديث معلم
+      tags: [المعلمون]
+
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: معرف المعلم
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Teacher'
+      responses:
+        '200':
+          description: تم تحديث المعلم
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Teacher'
+        '404':
+          description: المعلم غير موجود
+    delete:
+      summary: حذف معلم
+      tags: [المعلمون]
+
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: معرف المعلم
+      responses:
+        '204':
+          description: تم حذف المعلم
+        '404':
+          description: المعلم غير موجود
+  /students/register:
+    post:
+      summary: تسجيل طالب جديد
+      tags: [الطلاب]
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Student'
+      responses:
+        '201':
+          description: تم تسجيل الطالب
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+        '400':
+          description: طلب غير صالح
+  /students/login:
+    post:
+      summary: تسجيل دخول طالب
+      tags: [الطلاب]
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                phone:
+                  type: string
+                  description: رقم الهاتف
+                password:
+                  type: string
+                  description: كلمة المرور
+              required:
+                - phone
+                - password
+      responses:
+        '200':
+          description: تسجيل الدخول ناجح
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+                    description: رمز التوثيق
+        '401':
+          description: غير مصرح
+  /students/{id}:
+    get:
+      summary: استرجاع طالب محدد
+      tags: [الطلاب]
+
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: معرف الطالب
+      responses:
+        '200':
+          description: تفاصيل الطالب
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+        '404':
+          description: الطالب غير موجود
+    put:
+      summary: تحديث طالب
+      tags: [الطلاب]
+
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: معرف الطالب
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Student'
+      responses:
+        '200':
+          description: تم تحديث الطالب
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+        '404':
+          description: الطالب غير موجود
+    delete:
+      summary: حذف طالب
+      tags: [الطلاب]
+
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: معرف الطالب
+      responses:
+        '204':
+          description: تم حذف الطالب
+        '404':
+          description: الطالب غير موجود
+  /students/courses:
+    post:
+      summary: إضافة دورة للطالب
+      tags: [الطلاب]
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                student_id:
+                  type: integer
+                  description: معرف الطالب
+                course_id:
+                  type: integer
+                  description: معرف الدورة
+              required:
+                - student_id
+                - course_id
+      responses:
+        '201':
+          description: تم إضافة الدورة
+        '400':
+          description: طلب غير صالح
+    delete:
+      summary: إزالة دورة من الطالب
+      tags: [الطلاب]
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                student_id:
+                  type: integer
+                  description: معرف الطالب
+                course_id:
+                  type: integer
+                  description: معرف الدورة
+              required:
+                - student_id
+                - course_id
+      responses:
+        '204':
+          description: تم إزالة الدورة
+        '404':
+          description: غير موجود
+  /students/{id}/courses:
+    get:
+      summary: استرجاع دورات الطالب
+      tags: [الطلاب]
+
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: معرف الطالب
+      responses:
+        '200':
+          description: قائمة الدورات
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Course'
+        '404':
+          description: الطالب غير موجود
+  /education-platform-teachers:
+    post:
+      summary: تعيين معلم لمنصة
+      tags: [معلمو المنصة التعليمية]
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EducationPlatformTeacher'
+      responses:
+        '201':
+          description: تم تعيين المعلم
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EducationPlatformTeacher'
+        '400':
+          description: طلب غير صالح
+  /education-platform-teachers/platform/{platformId}:
+    get:
+      summary: استرجاع معلمي المنصة
+      tags: [معلمو المنصة التعليمية]
+
+      parameters:
+        - in: path
+          name: platformId
+          required: true
+          schema:
+            type: integer
+          description: معرف المنصة
+      responses:
+        '200':
+          description: قائمة المعلمين
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Teacher'
+        '404':
+          description: المنصة غير موجودة
+  /education-platform-teachers/teacher/{teacherId}:
+    get:
+      summary: استرجاع منصات المعلم
+      tags: [معلمو المنصة التعليمية]
+
+      parameters:
+        - in: path
+          name: teacherId
+          required: true
+          schema:
+            type: integer
+          description: معرف المعلم
+      responses:
+        '200':
+          description: قائمة المنصات
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/EducationPlatform'
+        '404':
+          description: المعلم غير موجود
+  /education-platform-teachers/platform/{platformId}/teacher/{teacherId}:
+    delete:
+      summary: إزالة معلم من منصة
+      tags: [معلمو المنصة التعليمية]
+
+      parameters:
+        - in: path
+          name: platformId
+          required: true
+          schema:
+            type: integer
+          description: معرف المنصة
+        - in: path
+          name: teacherId
+          required: true
+          schema:
+            type: integer
+          description: معرف المعلم
+      responses:
+        '204':
+          description: تم إزالة المعلم
+        '404':
+          description: غير موجود
+  /books:
+    post:
+      summary: إنشاء كتاب جديد
+      tags: [الكتب]
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Book'
+      responses:
+        '201':
+          description: تم إنشاء الكتاب
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Book'
+        '400':
+          description: طلب غير صالح
+    get:
+      summary: استرجاع جميع الكتب
+      tags: [الكتب]
+
+      responses:
+        '200':
+          description: قائمة الكتب
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Book'
+  /books/{id}:
+    get:
+      summary: استرجاع كتاب محدد
+      tags: [الكتب]
+
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: معرف الكتاب
+      responses:
+        '200':
+          description: تفاصيل الكتاب
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Book'
+        '404':
+          description: الكتاب غير موجود
+    put:
+      summary: تحديث كتاب
+      tags: [الكتب]
+
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: معرف الكتاب
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Book'
+      responses:
+        '200':
+          description: تم تحديث الكتاب
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Book'
+        '404':
+          description: الكتاب غير موجود
+    delete:
+      summary: حذف كتاب
+      tags: [الكتب]
+
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: معرف الكتاب
+      responses:
+        '204':
+          description: تم حذف الكتاب
+        '404':
+          description: الكتاب غير موجود
+  /books/teacher/{teacherId}:
+    get:
+      summary: استرجاع كتب المعلم
+      tags: [الكتب]
+
+      parameters:
+        - in: path
+          name: teacherId
+          required: true
+          schema:
+            type: integer
+          description: معرف المعلم
+      responses:
+        '200':
+          description: قائمة الكتب
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Book'
+        '404':
+          description: المعلم غير موجود
+  /books/platform/{platformId}:
+    get:
+      summary: استرجاع كتب المنصة
+      tags: [الكتب]
+
+      parameters:
+        - in: path
+          name: platformId
+          required: true
+          schema:
+            type: integer
+          description: معرف المنصة
+      responses:
+        '200':
+          description: قائمة الكتب
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Book'
+        '404':
+          description: المنصة غير موجودة
+  /courses:
+    post:
+      summary: إنشاء دورة جديدة
+      tags: [الدورات]
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Course'
+      responses:
+        '201':
+          description: تم إنشاء الدورة
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Course'
+        '400':
+          description: طلب غير صالح
+    get:
+      summary: استرجاع جميع الدورات
+      tags: [الدورات]
+
+      responses:
+        '200':
+          description: قائمة الدورات
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Course'
+  /courses/{id}:
+    get:
+      summary: استرجاع دورة محددة
+      tags: [الدورات]
+
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: معرف الدورة
+      responses:
+        '200':
+          description: تفاصيل الدورة
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Course'
+        '404':
+          description: الدورة غير موجودة
+    put:
+      summary: تحديث دورة
+      tags: [الدورات]
+
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: معرف الدورة
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Course'
+      responses:
+        '200':
+          description: تم تحديث الدورة
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Course'
+        '404':
+          description: الدورة غير موجودة
+    delete:
+      summary: حذف دورة
+      tags: [الدورات]
+
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: معرف الدورة
+      responses:
+        '204':
+          description: تم حذف الدورة
+        '404':
+          description: الدورة غير موجودة
+  /courses/academic-level/{academicLevelId}:
+    get:
+      summary: استرجاع دورات حسب المستوى الأكاديمي
+      tags: [الدورات]
+
+      parameters:
+        - in: path
+          name: academicLevelId
+          required: true
+          schema:
+            type: integer
+          description: معرف المستوى الأكاديمي
+      responses:
+        '200':
+          description: قائمة الدورات
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Course'
+        '404':
+          description: المستوى الأكاديمي غير موجود
+  /exams:
+    post:
+      summary: إنشاء امتحان جديد
+      tags: [الامتحانات]
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Exam'
+      responses:
+        '201':
+          description: تم إنشاء الامتحان
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Exam'
+        '400':
+          description: طلب غير صالح
+    get:
+      summary: استرجاع جميع الامتحانات
+      tags: [الامتحانات]
+
+      responses:
+        '200':
+          description: قائمة الامتحانات
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Exam'
+  /exams/{id}:
+    get:
+      summary: استرجاع امتحان محدد
+      tags: [الامتحانات]
+
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: معرف الامتحان
+      responses:
+        '200':
+          description: تفاصيل الامتحان
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Exam'
+        '404':
+          description: الامتحان غير موجود
+    put:
+      summary: تحديث امتحان
+      tags: [الامتحانات]
+
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: معرف الامتحان
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Exam'
+      responses:
+        '200':
+          description: تم تحديث الامتحان
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Exam'
+        '404':
+          description: الامتحان غير موجود
+    delete:
+      summary: حذف امتحان
+      tags: [الامتحانات]
+
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: معرف الامتحان
+      responses:
+        '204':
+          description: تم حذف الامتحان
+        '404':
+          description: الامتحان غير موجود
+  /exams/course/{courseId}:
+    get:
+      summary: استرجاع امتحانات حسب الدورة
+      tags: [الامتحانات]
+
+      parameters:
+        - in: path
+          name: courseId
+          required: true
+          schema:
+            type: integer
+          description: معرف الدورة
+      responses:
+        '200':
+          description: قائمة الامتحانات
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Exam'
+        '404':
+          description: الدورة غير موجودة
+  /exams/question-bank/{academicLevelId}:
+    get:
+      summary: استرجاع بنك الأسئلة حسب المستوى الأكاديمي
+      tags: [الامتحانات]
+
+      parameters:
+        - in: path
+          name: academicLevelId
+          required: true
+          schema:
+            type: integer
+          description: معرف المستوى الأكاديمي
+      responses:
+        '200':
+          description: بنك الأسئلة
+          content:
+            application/json:
+              schema:
+                type: object
+        '404':
+          description: المستوى الأكاديمي غير موجود
+  /videos:
+    post:
+      summary: إنشاء فيديو جديد
+      tags: [الفيديوهات]
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+      responses:
+        '201':
+          description: تم إنشاء الفيديو
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+        '400':
+          description: طلب غير صالح
+    get:
+      summary: استرجاع جميع الفيديوهات
+      tags: [الفيديوهات]
+
+      responses:
+        '200':
+          description: قائمة الفيديوهات
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Video'
+  /videos/{id}:
+    get:
+      summary: استرجاع فيديو محدد
+      tags: [الفيديوهات]
+
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: معرف الفيديو
+      responses:
+        '200':
+          description: تفاصيل الفيديو
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+        '404':
+          description: الفيديو غير موجود
+    put:
+      summary: تحديث فيديو
+      tags: [الفيديوهات]
+
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: معرف الفيديو
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+      responses:
+        '200':
+          description: تم تحديث الفيديو
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+        '404':
+          description: الفيديو غير موجود
+    delete:
+      summary: حذف فيديو
+      tags: [الفيديوهات]
+
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: معرف الفيديو
+      responses:
+        '204':
+          description: تم حذف الفيديو
+        '404':
+          description: الفيديو غير موجود
+  /videos/course/{courseId}:
+    get:
+      summary: استرجاع فيديوهات حسب الدورة
+      tags: [الفيديوهات]
+
+      parameters:
+        - in: path
+          name: courseId
+          required: true
+          schema:
+            type: integer
+          description: معرف الدورة
+      responses:
+        '200':
+          description: قائمة الفيديوهات
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Video'
+        '404':
+          description: الدورة غير موجودة
+  /posts:
+    post:
+      summary: إنشاء منشور جديد
+      tags: [المنشورات]
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Post'
+      responses:
+        '201':
+          description: تم إنشاء المنشور
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+        '400':
+          description: طلب غير صالح
+    get:
+      summary: استرجاع جميع المنشورات
+      tags: [المنشورات]
+
+      responses:
+        '200':
+          description: قائمة المنشورات
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Post'
+  /posts/{id}:
+    get:
+      summary: استرجاع منشور محدد
+      tags: [المنشورات]
+
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: معرف المنشور
+      responses:
+        '200':
+          description: تفاصيل المنشور
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+        '404':
+          description: المنشور غير موجود
+    put:
+      summary: تحديث منشور
+      tags: [المنشورات]
+
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: معرف المنشور
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Post'
+      responses:
+        '200':
+          description: تم تحديث المنشور
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+        '404':
+          description: المنشور غير موجود
+    delete:
+      summary: حذف منشور
+      tags: [المنشورات]
+
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: معرف المنشور
+      responses:
+        '204':
+          description: تم حذف المنشور
+        '404':
+          description: المنشور غير موجود
+  /posts/{id}/like:
+    post:
+      summary: إعجاب بمنشور
+      tags: [المنشورات]
+
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: معرف المنشور
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                student_id:
+                  type: integer
+                  description: معرف الطالب
+              required:
+                - student_id
+      responses:
+        '200':
+          description: تم الإعجاب بالمنشور
+        '400':
+          description: طلب غير صالح
+  /posts/{id}/unlike:
+    post:
+      summary: إلغاء إعجاب منشور
+      tags: [المنشورات]
+
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: معرف المنشور
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                student_id:
+                  type: integer
+                  description: معرف الطالب
+              required:
+                - student_id
+      responses:
+        '200':
+          description: تم إلغاء الإعجاب
+        '400':
+          description: طلب غير صالح
+  /posts/comment:
+    post:
+      summary: إضافة تعليق لمنشور
+      tags: [المنشورات]
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                post_id:
+                  type: integer
+                  description: معرف المنشور
+                student_id:
+                  type: integer
+                  description: معرف الطالب
+                content:
+                  type: string
+                  description: محتوى التعليق
+              required:
+                - post_id
+                - student_id
+                - content
+      responses:
+        '201':
+          description: تم إضافة التعليق
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+        '400':
+          description: طلب غير صالح
+  /posts/platform/{platformId}:
+    get:
+      summary: استرجاع منشورات حسب المنصة
+      tags: [المنشورات]
+
+      parameters:
+        - in: path
+          name: platformId
+          required: true
+          schema:
+            type: integer
+          description: معرف المنصة
+      responses:
+        '200':
+          description: قائمة المنشورات
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Post'
+        '404':
+          description: المنصة غير موجودة
+  /posts/student/{studentId}:
+    get:
+      summary: استرجاع منشورات الطالب
+      tags: [المنشورات]
+
+      parameters:
+        - in: path
+          name: studentId
+          required: true
+          schema:
+            type: integer
+          description: معرف الطالب
+      responses:
+        '200':
+          description: قائمة المنشورات
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Post'
+        '404':
+          description: الطالب غير موجود
+  /notifications:
+    post:
+      summary: إنشاء إشعار جديد
+      tags: [الإشعارات]
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Notification'
+      responses:
+        '201':
+          description: تم إنشاء الإشعار
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Notification'
+        '400':
+          description: طلب غير صالح
+    get:
+      summary: استرجاع جميع الإشعارات
+      tags: [الإشعارات]
+
+      responses:
+        '200':
+          description: قائمة الإشعارات
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Notification'
+  /notifications/{id}:
+    get:
+      summary: استرجاع إشعار محدد
+      tags: [الإشعارات]
+
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: معرف الإشعار
+      responses:
+        '200':
+          description: تفاصيل الإشعار
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Notification'
+        '404':
+          description: الإشعار غير موجود
+    put:
+      summary: تحديث إشعار
+      tags: [الإشعارات]
+
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: معرف الإشعار
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Notification'
+      responses:
+        '200':
+          description: تم تحديث الإشعار
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Notification'
+        '404':
+          description: الإشعار غير موجود
+    delete:
+      summary: حذف إشعار
+      tags: [الإشعارات]
+
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: معرف الإشعار
+      responses:
+        '204':
+          description: تم حذف الإشعار
+        '404':
+          description: الإشعار غير موجود
+  /notifications/platform/{platformId}:
+    get:
+      summary: استرجاع إشعارات حسب المنصة
+      tags: [الإشعارات]
+
+      parameters:
+        - in: path
+          name: platformId
+          required: true
+          schema:
+            type: integer
+          description: معرف المنصة
+      responses:
+        '200':
+          description: قائمة الإشعارات
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Notification'
+        '404':
+          description: المنصة غير موجودة
+  /login-tracking/platform/{platformId}/limit:
+    get:
+      summary: استرجاع حد تسجيل الدخول للمنصة
+      tags: [تتبع تسجيل الدخول]
+
+      parameters:
+        - in: path
+          name: platformId
+          required: true
+          schema:
+            type: integer
+          description: معرف المنصة
+      responses:
+        '200':
+          description: حد تسجيل الدخول للمنصة
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlatformLoginLimit'
+        '404':
+          description: المنصة غير موجودة
+    put:
+      summary: تحديث حد تسجيل الدخول للمنصة
+      tags: [تتبع تسجيل الدخول]
+
+      parameters:
+        - in: path
+          name: platformId
+          required: true
+          schema:
+            type: integer
+          description: معرف المنصة
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlatformLoginLimit'
+      responses:
+        '200':
+          description: تم تحديث حد تسجيل الدخول
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlatformLoginLimit'
+        '404':
+          description: المنصة غير موجودة
+  /login-tracking/student/{studentId}/records:
+    get:
+      summary: استرجاع سجلات تسجيل دخول الطالب
+      tags: [تتبع تسجيل الدخول]
+
+      parameters:
+        - in: path
+          name: studentId
+          required: true
+          schema:
+            type: integer
+          description: معرف الطالب
+      responses:
+        '200':
+          description: قائمة سجلات تسجيل الدخول
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StudentLoginRecord'
+        '404':
+          description: الطالب غير موجود
+  /login-tracking/student/{studentId}/platform/{platformId}/count:
+    get:
+      summary: استرجاع عدد تسجيلات الدخول للطالب في المنصة
+      tags: [تتبع تسجيل الدخول]
+
+      parameters:
+        - in: path
+          name: studentId
+          required: true
+          schema:
+            type: integer
+          description: معرف الطالب
+        - in: path
+          name: platformId
+          required: true
+          schema:
+            type: integer
+          description: معرف المنصة
+      responses:
+        '200':
+          description: عدد تسجيلات الدخول
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    description: عدد تسجيلات الدخول
+        '404':
+          description: غير موجود
