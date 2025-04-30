@@ -8,6 +8,8 @@ import (
 	"os"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/cors"
+	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/joho/godotenv"
 )
 
@@ -15,6 +17,13 @@ func main() {
 	err := godotenv.Load(".env")
 	if err != nil {
 		log.Fatalf("Error loading .env file: %v", err)
+	}
+
+	// تحديد التوكن الثابت من متغير البيئة أو استخدام القيمة الافتراضية
+	apiToken := os.Getenv("API_TOKEN")
+	if apiToken == "" {
+		apiToken = "learnos_7x9!Qw2@zP4&vB8*Lm5^cRt6" // توكن افتراضي في حالة عدم وجود متغير بيئة
+		log.Println("تحذير: تم استخدام توكن API افتراضي. قم بتعيين متغير البيئة API_TOKEN للإنتاج.")
 	}
 
 	config := &storage.Config{
@@ -36,10 +45,28 @@ func main() {
 		log.Fatalf("Error running migrations: %v", err)
 	}
 
-	app := fiber.New()
+	app := fiber.New(fiber.Config{
+		ErrorHandler: func(c *fiber.Ctx, err error) error {
+			return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
+				"message": "حدث خطأ في الخادم: " + err.Error(),
+			})
+		},
+	})
 
-	// إعداد جميع المسارات
-	routes.SetupRoutes(app, db)
+	// إضافة middleware
+	app.Use(logger.New())
+	app.Use(cors.New())
 
-	app.Listen(":8000")
+	// إعداد جميع المسارات مع تمرير توكن المصادقة
+	routes.SetupRoutes(app, db, apiToken)
+
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8000"
+	}
+
+	log.Printf("بدء تشغيل الخادم على المنفذ %s", port)
+	if err := app.Listen(":" + port); err != nil {
+		log.Fatalf("فشل في بدء الخادم: %v", err)
+	}
 }
